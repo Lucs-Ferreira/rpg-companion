@@ -12,15 +12,19 @@ import '../styles/modal.css';
 import '../styles/style.css';
 
 const LoginPage = () => {
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login(email, senha);
       showMessage("login-success", "success");
-      // Redirecionar, por exemplo, usando navigate do react-router-dom
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 2000);
     } catch (error) {
+      console.error("Erro ao fazer login:", error);
       showMessage(error.code, "error");
     }
   };
@@ -32,27 +36,27 @@ const LoginPage = () => {
           <h1 className="text-center mb-4 title text-black">Portal do Aventureiro</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
+              <label htmlFor="email" className="form-label">Email</label>
               <input
                 type="email"
                 className="form-control"
                 id="email"
                 placeholder="Seu email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Senha
-              </label>
+              <label htmlFor="password" className="form-label">Senha</label>
               <input
                 type="password"
                 className="form-control"
                 id="password"
                 placeholder="Sua senha"
                 required
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
               />
             </div>
             <button type="submit" className="btn btn-azul-rpg w-100 mt-2">
@@ -72,5 +76,6 @@ const LoginPage = () => {
     </div>
   );
 };
+
 
 export default LoginPage;

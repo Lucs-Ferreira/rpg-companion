@@ -1,8 +1,9 @@
 // src/components/ResetPassword.jsx
-import React from 'react';
+import React, { useState } from 'react';
+import { resetPassword } from '../firebase/auth';
+import { showMessage } from '../firebase/message';
 import { Link } from 'react-router-dom';
 
-// Importando os estilos necessários (ajuste os caminhos conforme sua estrutura)
 import '../styles/bootstrap.min.css';
 import '../styles/MedievalSharp.css';
 import '../styles/loginStyle.css';
@@ -10,13 +11,20 @@ import '../styles/modal.css';
 import '../styles/style.css';
 
 const ResetPassword = () => {
-  // Função para lidar com o envio do formulário
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode integrar a lógica de recuperação de senha, por exemplo, utilizando Firebase Auth
-    const email = e.target.email.value;
-    console.log('Formulário de recuperação enviado para:', email);
-    // Exemplo: resetPassword(email).catch(err => console.error(err));
+    try {
+      await resetPassword(email);
+      showMessage("reset-success", "success");
+      setTimeout(() => {
+        window.location.href = "/login";
+      })
+    } catch (error) {
+      console.error("Erro ao enviar e-mail de recuperação:", error);
+      showMessage(error.code, "error");
+    }
   };
 
   return (
@@ -35,6 +43,8 @@ const ResetPassword = () => {
                 id="email"
                 name="email"
                 placeholder="Digite seu e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
