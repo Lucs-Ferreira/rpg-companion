@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoadingScreen from './components/LoadingScreen';
+// Você deverá criar ou migrar o componente Login posteriormente:
+import LoginPage from './components/LoginPage'; 
+import RegisterPage from './components/RegisterPage';
+import ResetPassword from './components/ResetPassword';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoadingScreen />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/cadastro" element={<RegisterPage />} />
+        <Route path="/resetar-senha" element={<ResetPassword />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

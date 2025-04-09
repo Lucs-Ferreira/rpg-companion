@@ -1,0 +1,105 @@
+/* Importar a fonte medieval no seu HTML já foi feito, mas no CSS usamos: */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f7f1e1; /* tom de pergaminho */
+    font-family: 'MedievalSharp', cursive;
+    overflow: hidden;
+  }
+  
+  /* Container principal centralizado */
+  .loading-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('../assets/backgrounds/parchment-dark.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    animation: backgroundPulse 5s infinite alternate;
+  }
+  
+  /* Animação para o fundo, dando um leve pulsar (efeito mágico) */
+  @keyframes backgroundPulse {
+    from {
+      filter: brightness(1);
+    }
+    to {
+      filter: brightness(0.9);
+    }
+  }
+  
+  /* Estilização para o portal mágico */
+  .magic-portal {
+    width: 150px;
+    height: 150px;
+    border: 5px solid rgba(255, 215, 0, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    margin-bottom: 20px;
+    animation: portalGlow 2s infinite alternate;
+  }
+  
+  /* Animação do portal com brilho pulsante */
+  @keyframes portalGlow {
+    from {
+      transform: scale(0.9);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+    to {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 1);
+    }
+  }
+  
+  /* Estilo para o texto com efeito de digitação */
+  .typing-text {
+    font-size: 1.5rem;
+    color: #443c2a;
+    overflow: hidden;
+    border-right: .15em solid #443c2a;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+  }
+  
+  /* Efeito de digitação */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* Efeito de piscada do cursor */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #443c2a; }
+  }
+  
+  /* Estilização para partículas, se desejar adicionar efeitos decorativos */
+  .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(rgba(255,215,0,0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.4;
+    animation: particlesFloat 10s linear infinite;
+  }
+  
+  /* Movimento sutil das partículas */
+  @keyframes particlesFloat {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50px); }
+  }
+  
+  /* Efeito de fade-out quando a classe é adicionada */
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+  
