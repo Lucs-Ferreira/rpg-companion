@@ -10,6 +10,7 @@ import RegisterPage from './components/RegisterPage';
 import ResetPassword from './components/ResetPassword';
 import DashboardPage from './components/DashboardPage';
 import CharactersPage from './components/CharactersPage';
+import NewCharactersPage from './components/newCharactersPage';
 
 const App = () => {
   return (
@@ -30,6 +31,10 @@ const App = () => {
         <Route path="/personagens" element={
           <PrivateRoute>
             <CharactersPage />
+          </PrivateRoute>} />
+        <Route path="/personagem/novo" element={
+          <PrivateRoute>
+            <NewCharactersPage />
           </PrivateRoute>} />
       </Routes>
     </Router>

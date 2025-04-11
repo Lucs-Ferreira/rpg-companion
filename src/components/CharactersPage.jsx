@@ -25,7 +25,9 @@ const CharactersPage = () => {
           <Link to="/dashboard" className="text-decoration-none">
             <button className="menu-btn px-4 py-2">Voltar</button>
           </Link>
+          <Link to={"/personagem/novo"} className="text-decoration-none">
           <button className="btn btn-success px-4 py-2 "><i className='fa fa-plus'></i> Novo Personagem</button>
+          </Link>
         </div>
 
         <div className="d-flex flex-column gap-3">
