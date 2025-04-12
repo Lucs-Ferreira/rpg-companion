@@ -72,6 +72,7 @@ const NewCharacterPage = () => {
                             src={imagePreview || defaultImage}
                             alt="Pré-visualização do personagem"
                             className="img-fluid rounded"
+                            style={{ maxWidth: '110%', maxHeight: '220px', objectFit: 'cover' }}
                         />
                         <div className="mt-2">
                             <input
@@ -79,6 +80,7 @@ const NewCharacterPage = () => {
                                 accept="image/*"
                                 onChange={(e) => handleImageChange(e)}
                                 className="form-control mt-2"
+                                style={{ maxWidth: '100%', margin: '0 auto' }}
                             />
                         </div>
                     </div>
