@@ -17,30 +17,33 @@ export function showMessage(code, type) {
       "reset-success": "Sua senha foi enviada por um sussurro!",
     };
   
-    // Se for do tipo sucesso, utiliza a mensagem de sucesso; caso contrário, a de erro.
-    const message =
-      type === "success"
+    const isCustomMessage = !code.includes("auth/") && !firebaseSuccess[code];
+
+  const message =
+    isCustomMessage
+      ? code
+      : type === "success"
         ? firebaseSuccess[code] || "Operação realizada com sucesso!"
         : firebaseErrors[code] || "Algo deu errado. Tente novamente.";
-  
-    const modalContainer = document.createElement("div");
-    modalContainer.classList.add("modal-container");
-  
-    const modalContent = document.createElement("div");
-    modalContent.classList.add(
-      "modal-content",
-      type === "success" ? "modal-success" : "modal-error"
-    );
-    modalContent.textContent = message;
-  
-    modalContainer.appendChild(modalContent);
-    document.body.appendChild(modalContainer);
-  
+
+  const modalContainer = document.createElement("div");
+  modalContainer.classList.add("modal-container");
+
+  const modalContent = document.createElement("div");
+  modalContent.classList.add(
+    "modal-content",
+    type === "success" ? "modal-success" : "modal-error"
+  );
+  modalContent.textContent = message;
+
+  modalContainer.appendChild(modalContent);
+  document.body.appendChild(modalContainer);
+
+  setTimeout(() => {
+    modalContainer.classList.add("fade-out");
     setTimeout(() => {
-      modalContainer.classList.add("fade-out");
-      setTimeout(() => {
-        modalContainer.remove();
-      }, 500);
-    }, type === "success" ? 2000 : 1000);
-  }
+      modalContainer.remove();
+    }, 500);
+  }, type === "success" ? 2000 : 1000);
+}
   

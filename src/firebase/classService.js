@@ -1,8 +1,7 @@
-// src/firebase/classService.js
-import { getFirestore, collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { db } from './firebase-config'; // ou ajuste o path conforme necessário
 
 export const getClasses = async () => {
-  const db = getFirestore();
   const classCollection = collection(db, 'class');
   const classQuery = query(classCollection, orderBy('description'));
   const snapshot = await getDocs(classQuery);

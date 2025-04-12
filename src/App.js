@@ -10,7 +10,7 @@ import RegisterPage from './components/RegisterPage';
 import ResetPassword from './components/ResetPassword';
 import DashboardPage from './components/DashboardPage';
 import CharactersPage from './components/CharactersPage';
-import NewCharactersPage from './components/newCharactersPage';
+import NewCharactersPage from './components/newCharacterPage';
 
 const App = () => {
   return (
