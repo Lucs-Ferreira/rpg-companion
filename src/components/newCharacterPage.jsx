@@ -66,13 +66,12 @@ const NewCharacterPage = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="mb-4 col-6">
+                    <div className="mb-4 col-5">
                         <label htmlFor="image" className="form-label">Foto</label>
                         <img
                             src={imagePreview || defaultImage}
                             alt="Pré-visualização do personagem"
                             className="img-fluid rounded"
-                            style={{ maxWidth: '182px', maxHeight: '300px', objectFit: 'cover' }}
                         />
                         <div className="mt-2">
                             <input
@@ -80,7 +79,6 @@ const NewCharacterPage = () => {
                                 accept="image/*"
                                 onChange={(e) => handleImageChange(e)}
                                 className="form-control mt-2"
-                                style={{ maxWidth: '300px', margin: '0 auto' }}
                             />
                         </div>
                     </div>
