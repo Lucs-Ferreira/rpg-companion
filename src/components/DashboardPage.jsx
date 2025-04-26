@@ -41,6 +41,12 @@ const DashboardPage = () => {
                     </div>
                     <div className="col">
                         <button className="menu-btn w-100">
+                            <img src={mountainIcon} alt="Regiões" className="menu-icon" />
+                            <p>Grimório</p>
+                        </button>
+                    </div>
+                    <div className="col">
+                        <button className="menu-btn w-100">
                             <img src={wolfIcon} alt="Bestiário" className="menu-icon" />
                             <p>Bestiário</p>
                         </button>
@@ -49,12 +55,6 @@ const DashboardPage = () => {
                         <button className="menu-btn w-100">
                             <img src={scrollIcon} alt="História" className="menu-icon" />
                             <p>História</p>
-                        </button>
-                    </div>
-                    <div className="col">
-                        <button className="menu-btn w-100">
-                            <img src={mountainIcon} alt="Regiões" className="menu-icon" />
-                            <p>Regiões</p>
                         </button>
                     </div>
                     <div className="col">
