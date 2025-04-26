@@ -12,9 +12,9 @@ import d20Icon from '../assets/icons/d20.png';
 import groupIcon from '../assets/icons/group.png';
 import wolfIcon from '../assets/icons/wolf.png';
 import scrollIcon from '../assets/icons/scroll.png';
-import mountainIcon from '../assets/icons/mountain.png';
 import swordsIcon from '../assets/icons/swords.png';
 import cauldronIcon from '../assets/icons/cauldron.png';
+import grimorieIcon from '../assets/icons/grimorie.png';
 
 const DashboardPage = () => {
     return (
@@ -40,10 +40,12 @@ const DashboardPage = () => {
                         </Link>
                     </div>
                     <div className="col">
+                        <Link to="/grimorio" className="text-decoration-none text-black w-100">
                         <button className="menu-btn w-100">
-                            <img src={mountainIcon} alt="Regiões" className="menu-icon" />
+                            <img src={grimorieIcon} alt="Regiões" className="menu-icon" />
                             <p>Grimório</p>
                         </button>
+                        </Link>
                     </div>
                     <div className="col">
                         <button className="menu-btn w-100">

@@ -11,6 +11,7 @@ import ResetPassword from './components/ResetPassword';
 import DashboardPage from './components/DashboardPage';
 import CharactersPage from './components/CharactersPage';
 import NewCharactersPage from './components/newCharacterPage';
+import GrimoriePage from './components/GrimoriePage';
 
 const App = () => {
   return (
@@ -35,6 +36,10 @@ const App = () => {
         <Route path="/personagem/novo" element={
           <PrivateRoute>
             <NewCharactersPage />
+          </PrivateRoute>} />
+        <Route path="/grimorio" element={
+          <PrivateRoute>
+            <GrimoriePage />
           </PrivateRoute>} />
       </Routes>
     </Router>
